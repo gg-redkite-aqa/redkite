@@ -1,1 +1,1 @@
-# redkite
+# Repo for practicing jest-puppeteer
