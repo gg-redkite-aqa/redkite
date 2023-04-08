@@ -1,17 +1,28 @@
-const puppeteer = require('puppeteer');
-const homePage = require('../pages/homepage')
+import { homePage } from '../pages/homepage';
+import { aboutUs } from '../pages/aboutUs'
 
-describe("Hompage maintabs", () => {
+describe("Hompage and maintabs", () => {
+  beforeEach(async () => {
+    page.setDefaultNavigationTimeout(0)
+  });
 
-  it('Maintabs should exist and be clickable on homepage', async () => {
-    const browser = await puppeteer.launch({headless: false, defaultViewport: null, args: ['--start-maximized']});                                       
-    const page = (await browser.pages())[0];
-    await page.goto("https://redkite.io/en", {waitUntil: 'domcontentloaded'});
+  test('Maintabs should exist and be clickable on homepage', async () => {
+    await page.goto(URL);
     await page.waitForSelector(homePage.maintabsSelector);
     let tabNames = await page.$$eval(homePage.maintabsSelector, tabsArray => {
       return tabsArray.map(tab => tab.textContent)
     });
-    expect(tabNames).toEqual(homePage.maintabs);
-    await browser.close()
+    await expect(tabNames).toEqual(homePage.maintabs);
+  });
+
+  test('About us page should contain stuff linkedin links', async () => {
+    await page.goto(`${URL}/about`);
+    await page.waitForSelector(aboutUs.stufflinks);
+    let stuffLinkedinLinks = await page.$$eval(aboutUs.stufflinks, linksArray => {
+      return linksArray.map(link => link.href)
+    });
+    stuffLinkedinLinks.forEach(link => {
+      expect(link).toContain('https://www.linkedin.com')
+    })
   })
 });
