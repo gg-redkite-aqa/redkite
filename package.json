@@ -4,7 +4,7 @@
   "description": "",
 
   "scripts": {
-    "test": "jest --spec='testPathPattern=tests/*.test.js'"
+    "test": "jest --spec='tests/*.test.js'"
   },
   "repository": {
     "type": "git",
