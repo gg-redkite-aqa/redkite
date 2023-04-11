@@ -1,9 +1,9 @@
 module.exports = {
-    launch: { 
-      headless: false, 
-      defaultViewport: null, 
-      args: ['--start-maximized'],
-      //slowMo: 30, 
-    },
-    
-  }
+  launch: {
+    headless: false,
+    defaultViewport: { width: 1400, height: 768 },
+    args: ['--no-sandbox', '--disable-gpu'],
+    // slowMo: 30,
+  },
+
+};
