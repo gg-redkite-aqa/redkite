@@ -2,19 +2,23 @@
   "name": "redkite",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+
   "scripts": {
-    "test": "jest"
+    "test": "jest --testPathPattern=tests/*.test.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gg-redkite-aqa/redkite.git"
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.21.2",
     "eslint": "^8.38.0",
-    "jest": "^29.5.0",
-    "jest-puppeteer": "^8.0.6",
-    "puppeteer": "^19.8.3"
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.1",
+    "jest": "^27.5.1",
+    "jest-puppeteer": "^6.1.0",
+    "puppeteer": "^13.3.2",
+    "babel-jest": "^27.5.1"
   }
 }
