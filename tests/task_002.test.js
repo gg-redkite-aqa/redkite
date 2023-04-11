@@ -5,7 +5,6 @@ describe("Start now page", () => {
   beforeEach(async () => {
     page.setDefaultNavigationTimeout(0)
   });
-  
   test('Submitting the form', async () => {
     await page.goto(URL);
     await page.waitForSelector(homePage.startNowBtn);
